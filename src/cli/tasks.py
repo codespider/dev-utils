@@ -1,5 +1,16 @@
+import os
+
 from invoke import Program
 from invoke import task, Collection
+
+
+@task
+def py_lint(c):
+    lint_config = os.getenv("LINT_CFG")
+    if lint_config:
+        c.run(f"poetry run flake8 --config {lint_config}")
+    else:
+        c.run(f"poetry run flake8")
 
 
 @task
