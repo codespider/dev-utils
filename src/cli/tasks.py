@@ -9,9 +9,13 @@ def py_lint(c):
     lint_config = os.getenv("LINT_CFG")
     if lint_config:
         c.run(f"poetry run flake8 --config {lint_config}")
+        c.run(f"poetry run mypy --config-file {lint_config} scripts src")
     else:
-        c.run(f"poetry run flake8")
-
+        c.run("poetry run flake8")
+        c.run("poetry run mypy")
+@task
+def test(c):
+    c.run(f"poetry run pytest")
 
 @task
 def git_clean(c):
