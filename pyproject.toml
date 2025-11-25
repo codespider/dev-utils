@@ -2,8 +2,9 @@
 name = "dev-utils"
 version = "0.1.0"
 description = ""
-authors = [{name = "karthik", email = "karthikkannan@gmail.com"}]
+authors = [{ name = "karthik", email = "karthikkannan@gmail.com" }]
 requires-python = ">=3.13"
 dependencies = [
     "invoke>=1.7.1",
+    "PyJWT>=2.10.1"
 ]
